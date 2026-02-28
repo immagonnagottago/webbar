@@ -1,50 +1,109 @@
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f1f3f4;
+* {
+  box-sizing: border-box;
 }
 
-.browser-bar {
-  position: sticky;
-  top: 0;
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #f9f9fb;
+}
+
+/* Container */
+.firefox-ui {
+  background: #e3e3e7;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Tab Bar */
+.tab-bar {
+  display: flex;
+  align-items: flex-end;
+  padding: 6px 8px 0;
+  gap: 6px;
+}
+
+.tab {
+  background: #dcdce1;
+  padding: 8px 16px;
+  border-radius: 10px 10px 0 0;
+  font-size: 14px;
+  color: #333;
+}
+
+.tab.active {
+  background: white;
+  font-weight: 500;
+}
+
+.new-tab {
+  font-size: 18px;
+  padding: 4px 10px;
+  cursor: pointer;
+}
+
+/* Nav Bar */
+.nav-bar {
   display: flex;
   align-items: center;
-  background: #202124;
-  padding: 10px;
+  padding: 8px;
   gap: 10px;
+  background: white;
 }
 
 .nav-buttons {
   display: flex;
-  gap: 6px;
+  gap: 8px;
+  font-size: 18px;
+  color: #555;
 }
 
-.dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
+.nav-btn {
+  cursor: pointer;
 }
 
-.red { background: #ff5f56; }
-.yellow { background: #ffbd2e; }
-.green { background: #27c93f; }
-
-.address-bar {
+/* Address Bar */
+.address-container {
   flex: 1;
   display: flex;
   align-items: center;
-  background: white;
-  border-radius: 20px;
-  padding: 5px 10px;
+  background: #f0f0f4;
+  border-radius: 999px;
+  padding: 6px 12px;
+  gap: 6px;
+}
+
+.address-container input {
+  border: none;
+  background: transparent;
+  width: 100%;
+  font-size: 14px;
+  outline: none;
 }
 
 .lock {
-  margin-right: 6px;
+  font-size: 14px;
 }
 
-.address-bar input {
-  border: none;
-  outline: none;
-  width: 100%;
-  font-size: 14px;
+/* Right Icons */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ext {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.profile {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #4a4a4a;
+}
+
+/* Content */
+.page-content {
+  padding: 40px;
 }

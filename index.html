@@ -1,43 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
-<title>Interactive Firefox Mock</title>
+<title>Firefox Engine Mock</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="firefox-ui">
 
-  <!-- TAB BAR -->
   <div class="tab-bar">
     <div class="tabs" id="tabs"></div>
-    <div class="new-tab" id="newTab">+</div>
+    <img src="icons/newtab.png" class="icon-btn" id="newTab">
   </div>
 
-  <!-- NAV BAR -->
   <div class="nav-bar">
-    <div class="nav-buttons">
-      <span class="nav-btn">←</span>
-      <span class="nav-btn">→</span>
-      <span class="nav-btn">⟳</span>
-    </div>
+    <img src="icons/back.png" class="icon-btn" id="backBtn">
+    <img src="icons/forward.png" class="icon-btn" id="forwardBtn">
+    <img src="icons/reload.png" class="icon-btn" id="reloadBtn">
 
     <div class="address-container">
-      🔒 <input type="text" value="https://example.com" readonly>
+      <img src="icons/lock.png" class="lock-icon">
+      <input type="text" id="addressBar">
     </div>
 
     <div class="nav-right">
-      <button id="themeToggle">🌙</button>
-      <button id="fullscreenBtn">⛶</button>
+      <img src="icons/dark.png" class="icon-btn" id="themeToggle">
+      <img src="icons/fullscreen.png" class="icon-btn" id="fullscreenBtn">
     </div>
   </div>
 
 </div>
 
-<div class="page-content">
-  <h1>Fake Firefox UI</h1>
-  <p>All tabs load this same page.</p>
+<div class="page-content" id="pageContent">
+  <h1>Home</h1>
+  <p>Scroll this page. Each tab remembers its scroll.</p>
+  <div style="height:2000px"></div>
 </div>
 
 <script src="script.js"></script>

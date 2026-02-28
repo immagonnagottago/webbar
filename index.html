@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Firefox Mock</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Interactive Firefox Mock</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -11,10 +11,8 @@
 
   <!-- TAB BAR -->
   <div class="tab-bar">
-    <div class="tab active">
-      <span class="tab-title">example.com</span>
-    </div>
-    <div class="new-tab">+</div>
+    <div class="tabs" id="tabs"></div>
+    <div class="new-tab" id="newTab">+</div>
   </div>
 
   <!-- NAV BAR -->
@@ -26,22 +24,22 @@
     </div>
 
     <div class="address-container">
-      <span class="lock">🔒</span>
-      <input type="text" value="https://example.com" readonly>
+      🔒 <input type="text" value="https://example.com" readonly>
     </div>
 
     <div class="nav-right">
-      <span class="ext">⋯</span>
-      <div class="profile"></div>
+      <button id="themeToggle">🌙</button>
+      <button id="fullscreenBtn">⛶</button>
     </div>
   </div>
 
 </div>
 
 <div class="page-content">
-  <h1>Fake Firefox Tab</h1>
-  <p>This is a realistic Firefox-style browser UI.</p>
+  <h1>Fake Firefox UI</h1>
+  <p>All tabs load this same page.</p>
 </div>
 
+<script src="script.js"></script>
 </body>
 </html>

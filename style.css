@@ -1,0 +1,50 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f1f3f4;
+}
+
+.browser-bar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  background: #202124;
+  padding: 10px;
+  gap: 10px;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 6px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.red { background: #ff5f56; }
+.yellow { background: #ffbd2e; }
+.green { background: #27c93f; }
+
+.address-bar {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 20px;
+  padding: 5px 10px;
+}
+
+.lock {
+  margin-right: 6px;
+}
+
+.address-bar input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 14px;
+}

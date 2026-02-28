@@ -1,9 +1,19 @@
+/* =========================
+   THEME VARIABLES
+========================= */
+
 :root {
   --bg-main: #f9f9fb;
   --bg-ui: #e3e3e7;
-  --bg-nav: white;
+  --bg-nav: #ffffff;
   --bg-tab: #dcdce1;
-  --text: #222;
+  --bg-tab-active: #ffffff;
+  --address-bg: #f0f0f4;
+
+  --text-primary: #1c1c1c;
+  --text-muted: #555;
+
+  --border-soft: rgba(0,0,0,0.08);
 }
 
 body.dark {
@@ -11,36 +21,61 @@ body.dark {
   --bg-ui: #2b2c34;
   --bg-nav: #2f313a;
   --bg-tab: #3a3c46;
-  --text: #eee;
+  --bg-tab-active: #2f313a;
+  --address-bg: rgba(255,255,255,0.06);
+
+  --text-primary: #f1f1f1;
+  --text-muted: #aaa;
+
+  --border-soft: rgba(255,255,255,0.08);
 }
 
-* { box-sizing: border-box; }
+/* =========================
+   GLOBAL
+========================= */
+
+* {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
-  font-family: system-ui, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   background: var(--bg-main);
-  color: var(--text);
+  color: var(--text-primary);
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
-/* UI container */
+/* =========================
+   FIREFOX UI CONTAINER
+========================= */
+
 .firefox-ui {
   background: var(--bg-ui);
+  border-bottom: 1px solid var(--border-soft);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
 
-/* Tabs */
+/* =========================
+   TAB BAR
+========================= */
+
 .tab-bar {
   display: flex;
   align-items: flex-end;
-  padding: 6px;
+  padding: 6px 8px 0 8px;
   gap: 6px;
+  user-select: none;
 }
 
 .tabs {
   display: flex;
   gap: 6px;
   flex: 1;
+  overflow-x: auto;
 }
+
+/* Individual Tab */
 
 .tab {
   display: flex;
@@ -49,58 +84,147 @@ body {
   background: var(--bg-tab);
   padding: 8px 14px;
   border-radius: 10px 10px 0 0;
+  font-size: 14px;
   cursor: pointer;
+  transition: background 0.15s ease;
+  border: 1px solid transparent;
+}
+
+.tab:hover {
+  background: var(--bg-tab-active);
 }
 
 .tab.active {
-  background: var(--bg-nav);
+  background: var(--bg-tab-active);
+  border-color: var(--border-soft);
+  border-bottom: 1px solid var(--bg-nav);
   font-weight: 500;
 }
 
-.close {
-  font-size: 14px;
-  cursor: pointer;
+/* Close icon inside tab */
+
+.close-icon {
+  width: 14px;
+  height: 14px;
+  opacity: 0.7;
+  transition: opacity 0.15s ease;
 }
 
-.new-tab {
-  font-size: 20px;
-  padding: 4px 12px;
-  cursor: pointer;
+.close-icon:hover {
+  opacity: 1;
 }
 
-/* Nav bar */
+/* New Tab Button */
+
+#newTab {
+  width: 20px;
+  height: 20px;
+  margin-bottom: 6px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.15s ease;
+}
+
+#newTab:hover {
+  opacity: 1;
+}
+
+/* =========================
+   NAVIGATION BAR
+========================= */
+
 .nav-bar {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 8px;
+  padding: 8px 10px;
   background: var(--bg-nav);
+  border-top: 1px solid var(--border-soft);
 }
+
+/* Nav icons */
+
+.icon-btn {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  opacity: 0.75;
+  transition: opacity 0.15s ease, transform 0.1s ease;
+}
+
+.icon-btn:hover {
+  opacity: 1;
+}
+
+.icon-btn:active {
+  transform: scale(0.92);
+}
+
+/* =========================
+   ADDRESS BAR
+========================= */
 
 .address-container {
   flex: 1;
   display: flex;
   align-items: center;
-  background: rgba(0,0,0,0.05);
+  background: var(--address-bg);
   padding: 6px 12px;
   border-radius: 999px;
-  gap: 6px;
+  gap: 8px;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
 }
 
-.address-container input {
+.address-container:focus-within {
+  box-shadow: 0 0 0 2px rgba(0,120,255,0.3);
+}
+
+.lock-icon {
+  width: 16px;
+  height: 16px;
+  opacity: 0.8;
+}
+
+#addressBar {
   border: none;
   background: transparent;
   outline: none;
   width: 100%;
+  font-size: 14px;
+  color: var(--text-primary);
 }
 
-.nav-right button {
-  background: transparent;
-  border: none;
-  font-size: 18px;
-  cursor: pointer;
+/* =========================
+   RIGHT SIDE NAV
+========================= */
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
 }
+
+/* =========================
+   PAGE CONTENT
+========================= */
 
 .page-content {
   padding: 40px;
+  min-height: 200vh;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+/* Scrollbar styling (optional realism) */
+
+.tabs::-webkit-scrollbar {
+  height: 6px;
+}
+
+.tabs::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.2);
+  border-radius: 10px;
+}
+
+body.dark .tabs::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.2);
 }
